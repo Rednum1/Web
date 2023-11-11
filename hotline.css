@@ -1,0 +1,83 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 600px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .popup-content {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .feedback-content {
+    text-align: center;
+    padding: 20px;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .feedback-content textarea {
+    width: 350px;
+    height: 400px;
+    resize: none;
+  }
+  
+  .feedback-content button {
+    margin-top: 10px;
+  }
+  
+  .feedback {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #b9babb;
+    cursor: pointer;
+    margin-left: 600px;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* CSS для кнопки "Закрити" */
+  .close-button {
+    position: absolute;
+    top: 10px; /* Встановіть бажану відстань від верху */
+    right: 10px; /* Встановіть бажану відстань від правого краю */
+    background-color: #ff0000; /* Колір фону кнопки */
+    color: #ffffff; /* Колір тексту кнопки */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  
+  .close-button:hover {
+    background-color: #cc0000; /* Колір фону кнопки при наведенні */
+  }
+  

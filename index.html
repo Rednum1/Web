@@ -16,14 +16,20 @@
             <div class="logo">Lorem</div>
             <div class="menu">
                 <ul>
-                    <li><a href="#">Про нас</a></li>
-                    <li><a href="#">Відео</a></li>
-                    <li><a href="#">Консультації</a></li>
-                    <li><a href="#">Гаряча лінія</a></li>
-			    </ul>
+                    <li><a href="index.html">Про нас</a></li>
+                    <li><a href="video.html">Відео</a></li>
+                    <li><a href="consultations.html">Консультації</a></li>
+                    <li><a href="hotline.html">Написати відгук</a></li>
+                  <!--не єбу як але не працює перехід по кнопці-->
+                     
+                  </ul>
             </div>
-            <div class="socials">
-                <a href="#">Увійти <i class="fa fa-user" aria-hidden="true"></i></a>
+            <div id="LoginScreen">
+              <button id="login">Login with Google</button>
+            </div>
+            <div id="dashboard">
+              <!--<div id="userDetails"></div> -->
+              <button id="logout">Logout</button>
             </div>
         </nav>
         <div class="banner-text">
@@ -37,6 +43,7 @@
             <img class="image" src="лікар.png" alt="Зображення">
             <div class="image-overlay"></div>
         </div>
+        
     </div>
         <div class="section section1">
             <article>
@@ -118,6 +125,7 @@
             </div>
         </div>
       </div>
+      
   <footer class="text-center text-lg-start bg-light text-muted">
     <section class="">
       <div class="container text-center text-md-start mt-5">
@@ -175,5 +183,9 @@
   </footer>
         </div>
     </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+     <script src="auth.js"></script>
 </body>
 </html>

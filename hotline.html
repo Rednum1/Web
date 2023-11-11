@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback System</title>
+    <!-- Підключення Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+    <link rel="stylesheet" href="hotline.css">
+</head>
+<body>
+    <div class="feedback">
+        <a href="#" id="openPopup">Написати відгук</a>
+    </div>
+
+    <!-- Вікно входу -->
+    <div id="loginPopup" class="popup">
+        <div class="popup-content">
+          
+            <h2>Увійдіть в акаунт</h2>
+            <button id="login">Увійти з Google</button>
+            <button id="closePopup" class="close-button">X</button>
+        </div>
+    </div>
+
+    <!-- Вікно відгуку -->
+    <div id="feedbackPopup" class="popup">
+        <div class="feedback-content">
+          <button id="closeFeedback" class="close-button">Х</button>
+            <h2>Напишіть свій відгук</h2>
+            <p id="userInfo">Ласкаво просимо, [Ім'я користувача]</p>
+            
+            <textarea id="feedbackText" placeholder="Ваш відгук" rows="10" cols="50"></textarea>
+            <button id="sendFeedback">Відправити</button>
+        </div>
+    </div>
+
+    <script src="hotline.js"></script>
+</body>
+</html>
