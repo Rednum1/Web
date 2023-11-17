@@ -1,4 +1,4 @@
-/* styles.css */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -63,13 +63,13 @@ body {
     text-decoration: underline;
   }
   
-  /* CSS для кнопки "Закрити" */
+
   .close-button {
     position: absolute;
-    top: 10px; /* Встановіть бажану відстань від верху */
-    right: 10px; /* Встановіть бажану відстань від правого краю */
-    background-color: #ff0000; /* Колір фону кнопки */
-    color: #ffffff; /* Колір тексту кнопки */
+    top: 10px; 
+    right: 10px; 
+    background-color: #ff0000; 
+    color: #ffffff; 
     border: none;
     padding: 5px 10px;
     cursor: pointer;
@@ -78,6 +78,6 @@ body {
   }
   
   .close-button:hover {
-    background-color: #cc0000; /* Колір фону кнопки при наведенні */
+    background-color: #cc0000; 
   }
   

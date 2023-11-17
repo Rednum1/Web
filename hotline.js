@@ -1,78 +1,61 @@
-// script.js
-// Ваша конфігурація Firebase
-var firebaseConfig = {
-    apiKey: "AIzaSyDWKmMXZ0tFukxfEhio2MGxtk0zhkuyzk0",
-    authDomain: "auth-9f5a5.firebaseapp.com",
-    projectId: "auth-9f5a5",
-    storageBucket: "auth-9f5a5.appspot.com",
-    messagingSenderId: "463974212623",
-    appId: "1:463974212623:web:adcf7649f265a6538a6f7a"
-};
+function createPopup() {
+    const popupContainer = document.createElement('div');
+    popupContainer.classList.add('popup-container');
+    
+    const closeButton = document.createElement('span');
+    closeButton.id = 'closePopupButton';
+    closeButton.innerHTML = '&times;';
+    
+    const popupContent = document.createElement('div');
+    popupContent.id = 'popupContent';
+    
+    popupContainer.appendChild(closeButton);
+    popupContainer.appendChild(popupContent);
+    
+    document.body.appendChild(popupContainer);
 
-// Ініціалізація Firebase
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-const db = firebase.firestore();
+    // Обробник події для закриття вікна
+    closeButton.addEventListener('click', closePopup);
 
-// Посилання на HTML елементи
-const openPopup = document.getElementById("openPopup");
-const loginPopup = document.getElementById("loginPopup");
-const closePopup = document.getElementById("closePopup");
-const loginButton = document.getElementById("login");
-const feedbackPopup = document.getElementById("feedbackPopup");
-const userInfo = document.getElementById("userInfo");
-const feedbackText = document.getElementById("feedbackText");
-const sendFeedback = document.getElementById("sendFeedback");
+    return popupContainer;
+}
 
-// Відкрити вікно входу при натисканні на посилання
-openPopup.addEventListener("click", () => {
-    loginPopup.style.display = "block";
-});
+// Функція для відображення вікна
+function showPopup() {
+    const popupContainer = createPopup();
+    // Додайте вміст вікна за вашими потребами
+    popupContainer.querySelector('#popupContent').innerHTML = `
+        <h2>Вітаємо, користувач!</h2>
+        <textarea id="reviewText" rows="5" placeholder="Напишіть ваш відгук"></textarea>
+        <button id="submitReview">Відправити</button>
+    `;
 
-// Закрити вікно входу при натисканні на кнопку "Закрити"
-closePopup.addEventListener("click", () => {
-    loginPopup.style.display = "none";
-});
+    // Додайте обробник події для відправлення відгуку
+    const submitButton = popupContainer.querySelector('#submitReview');
+    submitButton.addEventListener('click', submitReview);
+}
 
-// Автентифікація через Google
-loginButton.addEventListener("click", () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider)
-        .then((result) => {
-            // Відобразити вікно відгуку
-            loginPopup.style.display = "none";
-            feedbackPopup.style.display = "block";
-            // Відобразити ім'я користувача
-            userInfo.textContent = `Ласкаво просимо, ${result.user.displayName}`;
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-});
-
-// Відправити відгук
-sendFeedback.addEventListener("click", () => {
-    const feedback = feedbackText.value.trim();
-    if (feedback !== "") {
-        // Додати код для відправки відгуку на сервер (наприклад, в базу даних Firestore)
-        // feedback зберігає текст відгуку, а result.user.uid можна використовувати як ідентифікатор користувача
-
-        // Приклад додавання відгуку в Firestore
-        db.collection("feedbacks")
-            .add({
-                text: feedback,
-                userId: result.user.uid, // ідентифікатор користувача
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            })
-            .then(() => {
-                console.log("Відгук успішно відправлено!");
-            })
-            .catch((error) => {
-                console.error("Помилка при відправці відгуку:", error);
-            });
+// Функція для закриття вікна
+function closePopup() {
+    const popupContainer = document.querySelector('.popup-container');
+    if (popupContainer) {
+        popupContainer.remove();
     }
-});
+}
 
-document.getElementById('closeFeedback').addEventListener('click', function () {
-    document.getElementById('feedbackPopup').style.display = 'none';
-});
+// Функція для відправлення відгуку
+function submitReview() {
+    const reviewText = document.getElementById('reviewText').value;
+    // Виклик функції для збереження відгуку в Firebase
+    addReview(reviewText);
+}
+
+// Функція для додавання відгуку в Firebase
+function addReview(reviewText) {
+    // Код для додавання відгуку в Firebase
+    console.log('Відгук додано:', reviewText);
+}
+ 
+// Обробник події для відкриття вікна при кліку на кнопку
+document.getElementById('openPopupButton').addEventListener('click', showPopup);
+
