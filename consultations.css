@@ -1,0 +1,50 @@
+.countainer {
+    background-color: white;
+    width: 60%;
+    margin: 20px auto;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	height: auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+select {
+    padding: 8px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.confirmation {
+    margin-top: 20px;
+    color: #4caf50;
+}
+
+.doctor-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.doctor-profile img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.doctor-profile .info {
+    flex-grow: 1;
+}
+
+.doctor-profile h3 {
+    margin: 0;
+}
+
+.doctor-profile p {
+    margin: 0;
+    color: #777;
+}
